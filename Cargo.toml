@@ -1,0 +1,10 @@
+[package]
+name = "indvec"
+version = "0.1.0"
+description = "A vec literal that assigns item indices."
+edition = "2018"
+license = "Unlicense"
+repository = "https://github.com/SOF3/indvec"
+homepage = "https://github.com/SOF3/indvec"
+readme = "README.md"
+authors = ["SOFe <sofe2038@gmail.com>"]

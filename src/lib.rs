@@ -23,7 +23,7 @@ macro_rules! seq_ident {
 /// ```
 /// use indvec::indvec;
 ///
-/// indvec![
+/// indvec![vec =
 ///     a = "foo",
 ///     b = "bar",
 ///     _c = "qux",
@@ -33,12 +33,16 @@ macro_rules! seq_ident {
 /// assert_eq!(a, 0usize);
 /// assert_eq!(b, 1usize);
 /// assert_eq!(d, 3usize);
+///
+/// assert_eq!(vec[a], "foo");
+/// assert_eq!(vec[b], "bar");
+/// assert_eq!(vec[d], "corge");
 /// ```
 #[macro_export]
 macro_rules! indvec {
-    ($($ident:ident = $expr:expr),* $(,)?) => {
+    ($vec:pat = $($ident:ident = $expr:expr),* $(,)?) => {
         #[allow(unused_assignments)]
         let [$($ident),*] = $crate::seq_ident!($($ident),*);
-        $crate::alloc::vec![$($expr),*]
+        let $vec = $crate::alloc::vec![$($expr),*];
     }
 }

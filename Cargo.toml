@@ -1,6 +1,6 @@
 [package]
 name = "indvec"
-version = "0.1.0"
+version = "0.2.0"
 description = "A vec literal that assigns item indices."
 edition = "2018"
 license = "Unlicense"
